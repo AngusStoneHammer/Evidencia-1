@@ -70,5 +70,41 @@ class pacientecrear {
         properties.store(new FileOutputStream("src/db/paciente.txt"), null);
     }
 }
+class Doctor {
+    static String Nombre = null;
+    static String especialidad = null;
+    static String doctorid = null;
+
+    public Doctor(String Nombre, String especialidad) {
+        this.Nombre = Nombre;
+        this.especialidad = especialidad;
+    }
+
+    @Override
+    public String toString() {
+        return "Doctor " + Nombre + " con la Especialidad " + especialidad;
+    }
+
+}
+class doctorcrear {
+    static HashMap<String, String> doctor = new HashMap<String, String>();
+    private static String Nombre;
+    private static String especialidad;
+
+    public static void loaddoctor() throws FileNotFoundException, IOException {
+        String filePath = "src/db/doctor.txt";
+
+        String lined;
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        while ((lined = reader.readLine()) != null) {
+            String[] parts = lined.split("=", 2);
+            if (parts.length >= 2) {
+                String key = parts[0];
+                String value = parts[1];
+                doctor.put(key, value);
+            }
+        }
+    }
+}
 public class Evidencia {
 }
