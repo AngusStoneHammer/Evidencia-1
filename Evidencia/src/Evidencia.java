@@ -105,6 +105,15 @@ class doctorcrear {
             }
         }
     }
+    public static void savedoctor() throws IOException {
+        Properties properties = new Properties();
+
+        for (Map.Entry<String,String> entry : doctor.entrySet()) {
+            properties.put(entry.getKey(), entry.getValue());
+        }
+
+        properties.store(new FileOutputStream("src/db/doctor.txt"), null);
+    }
 }
 public class Evidencia {
 }
