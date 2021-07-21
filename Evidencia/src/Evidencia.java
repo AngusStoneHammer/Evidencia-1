@@ -115,5 +115,39 @@ class doctorcrear {
         properties.store(new FileOutputStream("src/db/doctor.txt"), null);
     }
 }
+class cita{
+    private static String motivo;
+    private static String Fecha;
+    public cita(String motivo, String Fecha) {
+        this.motivo = motivo;
+        this.Fecha = Fecha;
+    }
+
+    public cita() {
+
+    }
+
+    @Override
+    public String toString() {
+        return "con el Motivo " + motivo + " con la Fecha de " + Fecha;
+    }
+}
+class citacrear {
+    static HashMap<String, String> cita = new HashMap<>();
+    public static void citaload() throws FileNotFoundException, IOException {
+        String filePath = "src/db/cita.txt";
+
+        String line;
+        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        while ((line = reader.readLine()) != null) {
+            String[] parts = line.split("=", 2);
+            if (parts.length >= 2) {
+                String key = parts[0];
+                String value = parts[1];
+                cita.put(key, value);
+            }
+        }
+    }
+}
 public class Evidencia {
 }
