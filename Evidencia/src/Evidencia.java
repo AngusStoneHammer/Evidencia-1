@@ -87,11 +87,11 @@ class Doctor {
 
 }
 class doctorcrear {
-    static HashMap<String, String> doctor = new HashMap<String, String>();
+    static HashMap<String, String> doctor = new HashMap<>();
     private static String Nombre;
     private static String especialidad;
 
-    public static void loaddoctor() throws FileNotFoundException, IOException {
+    public static void loaddoctor() throws IOException {
         String filePath = "src/db/doctor.txt";
 
         String lined;
@@ -134,7 +134,7 @@ class cita{
 }
 class citacrear {
     static HashMap<String, String> cita = new HashMap<>();
-    public static void citaload() throws FileNotFoundException, IOException {
+    public static void citaload() throws IOException {
         String filePath = "src/db/cita.txt";
 
         String line;
@@ -147,6 +147,14 @@ class citacrear {
                 cita.put(key, value);
             }
         }
+    }
+    public static void citasave() throws IOException {
+        Properties properties = new Properties();
+
+        for (Map.Entry<String, String> entry : cita.entrySet()) {
+            properties.put(entry.getKey(), entry.getValue());
+        }
+        properties.store(new FileOutputStream("src/db/cita.txt"), null);
     }
 }
 public class Evidencia {
