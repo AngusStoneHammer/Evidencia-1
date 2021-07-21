@@ -29,6 +29,18 @@ class User {
         properties.store(new FileOutputStream("src/db/User.txt"), null);
     }
 }
+class Paciente {
+    static String Nombre = null;
+
+    public Paciente(String Nombre) {
+        this.Nombre = Nombre;
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente " + Nombre;
+    }
+}
 class pacientecrear {
 
     static HashMap<String, String> paciente = new HashMap<>();
@@ -47,6 +59,15 @@ class pacientecrear {
                 paciente.put(key, value);
             }
         }
+    }
+    public static void savepaciente() throws IOException {
+        Properties properties = new Properties();
+
+        for (Map.Entry<String,String> entry : paciente.entrySet()) {
+            properties.put(entry.getKey(), entry.getValue());
+        }
+
+        properties.store(new FileOutputStream("src/db/paciente.txt"), null);
     }
 }
 public class Evidencia {
