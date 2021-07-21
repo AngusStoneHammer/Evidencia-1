@@ -19,6 +19,15 @@ class User {
             }
         }
     }
+    public static void saveUser() throws IOException {
+        Properties properties = new Properties();
+
+        for (Map.Entry<String,String> entry : User.entrySet()) {
+            properties.put(entry.getKey(), entry.getValue());
+        }
+
+        properties.store(new FileOutputStream("src/db/User.txt"), null);
+    }
 }
 public class Evidencia {
 }
