@@ -73,7 +73,6 @@ class pacientecrear {
 class Doctor {
     static String Nombre = null;
     static String especialidad = null;
-    static String doctorid = null;
 
     public Doctor(String Nombre, String especialidad) {
         this.Nombre = Nombre;
@@ -117,19 +116,15 @@ class doctorcrear {
 }
 class cita{
     private static String motivo;
-    private static String Fecha;
-    public cita(String motivo, String Fecha) {
+    private static String FechayHora;
+    public cita(String motivo, String FechayHora) {
         this.motivo = motivo;
-        this.Fecha = Fecha;
-    }
-
-    public cita() {
-
+        this.FechayHora = FechayHora;
     }
 
     @Override
     public String toString() {
-        return "con el Motivo " + motivo + " con la Fecha de " + Fecha;
+        return "con el Motivo " + motivo + " con la Fecha de " + FechayHora;
     }
 }
 class citacrear {
